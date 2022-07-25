@@ -1,0 +1,23 @@
+{
+  "id": "2023650",
+  "name": "assets",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12861561",
+      "name": "search_list",
+      "font_class": "search_list",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "12898877",
+      "name": "right_blod",
+      "font_class": "right_blod",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    }
+  ]
+}

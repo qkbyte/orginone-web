@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="55px" height="18px" viewBox="0 0 55 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>标签/审批中20圆备份</title>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页2（两个可视化图表）" transform="translate(-772.000000, -250.000000)">
+            <g id="编组-96备份-7" transform="translate(772.000000, 250.000000)">
+                <g id="标签/审批中20角" fill="#154AD8">
+                    <path d="M9,0 L36.2941176,0 C41.2646804,-2.6894344e-15 45.2941176,4.02943725 45.2941176,9 C45.2941176,13.9705627 41.2646804,18 36.2941176,18 L9,18 C4.02943725,18 2.38507522e-15,13.9705627 0,9 C-2.38507522e-15,4.02943725 4.02943725,-8.63279275e-16 9,0 Z" id="矩形" opacity="0.2"></path>
+                    <circle id="椭圆形" cx="8.00980392" cy="8.5" r="2.5"></circle>
+                    <text id="待办" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" letter-spacing="0.376190667">
+                        <tspan x="15.1238093" y="13">待办</tspan>
+                    </text>
+                </g>
+                <g id="编组-98" transform="translate(4.313725, 1.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

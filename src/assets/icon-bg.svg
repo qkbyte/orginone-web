@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="49px" height="48px" viewBox="0 0 49 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 25</title>
+    <defs>
+        <path d="M44,0 C46.209,0 48,1.78186224 48,3.97959184 L48,43.7755102 C48,45.9732398 46.209,47.755102 44,47.755102 L4,47.755102 C1.791,47.755102 0,45.9732398 0,43.7755102 L0,3.97959184 C0,1.78186224 1.791,0 4,0 L44,0 Z" id="path-1"></path>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页更改常用应用样式" transform="translate(-398.000000, -1140.000000)">
+            <g id="编组-26" transform="translate(398.500000, 1140.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="蒙版" fill="#EBF1FB" xlink:href="#path-1"></use>
+                <circle id="椭圆形" fill="#4ECE93" mask="url(#mask-2)" cx="48.2" cy="1.2" r="7.2"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

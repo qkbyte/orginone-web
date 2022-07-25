@@ -1,0 +1,65 @@
+<div class="modal" ng-controller="FlowableConditionExpressionPopupCtrl">
+      <div class="modal-dialog modal-wide">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="close()">&times;</button>
+                <h2>{{'PROPERTY.PROPERTY.EDIT.TITLE' | translate}} "{{property.title | translate}}"</h2>
+            </div>
+            <div class="modal-body">
+                <div class="row row-no-gutter">
+                    <div class="col-xs-4">
+                        <div ng-if="translationsRetrieved" class="kis-listener-grid" ui-grid="gridOptions" ui-grid-selection></div>
+                    </div>
+            
+                    <div >
+                        <div>
+<!--             
+                            <div class="form-group">
+                                <label for="idField">{{'PROPERTY.FORMPROPERTIES.ID' | translate}}</label>
+                                <input id="idField" class="form-control" type="text" ng-model="selectedProperty.id" placeholder="{{'PROPERTY.FORMPROPERTIES.ID.PLACEHOLDER' | translate }}" />
+                            </div>
+                            <div class="form-group">
+                                <label for="nameField">{{'PROPERTY.FORMPROPERTIES.NAME' | translate}}</label>
+                                <input id="nameField" class="form-control" type="text" ng-model="selectedProperty.name" placeholder="{{'PROPERTY.FORMPROPERTIES.NAME.PLACEHOLDER' | translate }}" />
+                            </div> -->
+
+                            <div class="form-group col-xs-2"  >
+                                <label for="typeField" ng-if='selectedProperty.name'>关系</label>
+                                <select id="typeField" class="form-control" ng-model='selectedProperty.type' ng-change="propertyTypeChanged()" style='font-size:20px' ng-if="(selectedProperty.type1=='input'&&selectedProperty.rules.type=='number')||selectedProperty.type1=='number'">
+                                    <option style='font-size:20px'>></option>
+                                    <option style='font-size:20px'>>=</option>
+                                    <option style='font-size:20px'><</option>
+                                    <option style='font-size:20px'><=</option>
+                                    <option style='font-size:20px'>=</option>
+                                    <option style='font-size:20px'>≠</option>
+                                    <option style='font-size:20px'>≡</option>
+                                </select>
+                                <select id="typeField" class="form-control" ng-model='selectedProperty.type' ng-change="propertyTypeChanged()" style='font-size:20px' ng-if="selectedProperty.type1=='radio'||selectedProperty.type1=='select'||(selectedProperty.type1=='input'&&selectedProperty.rules.type=='string')">
+                                    <option style='font-size:20px'>==</option>
+                                    <option style='font-size:20px'>!=</option>
+                                </select>
+                                 <p  ng-if="!(selectedProperty.type1=='input'||selectedProperty.type1=='radio'||selectedProperty.type1=='select'||selectedProperty.type1=='number')" style='margin-top:10px'>未选择表单项或选择的表单项不合理</p>
+                         <!--          <select id="typeField" class="form-control" ng-model='selectedProperty.type' ng-change="propertyTypeChanged()" style='font-size:20px' ng-if="!(/^\d{1,}$/.test(selectedProperty.name))">
+                                    <option style='font-size:20px'>eq</option>
+                                    <option style='font-size:20px'>ne</option>
+                                </select> -->
+                            </div>
+       
+                            <div class="form-group col-xs-4" ng-if="selectedProperty.name&&(selectedProperty.type1=='input'||selectedProperty.type1=='radio'||selectedProperty.type1=='select'||selectedProperty.type1=='number')">
+                                <label for="variableField">{{'PROPERTY.FORMPROPERTIES.VARIABLE' | translate}}</label>
+                                <input id="variableField" class="form-control" type="text" ng-model="selectedProperty.variable" placeholder="{{'PROPERTY.FORMPROPERTIES.VARIABLE.PLACEHOLDER' | translate }}" />
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+            
+            </div>
+            <div class="modal-footer">
+                 <button ng-click="reset()" class="btn btn-primary" translate>重置</button>
+                <button ng-click="cancel()" class="btn btn-primary" translate>ACTION.CANCEL</button>
+                <button ng-click="save()" class="btn btn-primary" translate>ACTION.SAVE</button>
+            </div>
+        </div>
+    </div>
+</div>

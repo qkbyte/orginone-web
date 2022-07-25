@@ -1,0 +1,88 @@
+.left{
+    position: relative;
+    .left-inner{
+        width: 220px;
+        height: 958px;
+        margin-left: 20px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.06);
+        border-radius: 4px;
+        .nav-level1{
+            height: 58px;
+            line-height: 58px;
+            background: linear-gradient(136deg, #9FD1FF 0%, #63B1FE 100%);
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-size:22px;
+            font-weight: 600;
+            color: #fff;
+            border-radius: 2px 2px 0px 0px;
+            text-align: center;
+            margin-bottom: 32px;
+            a{
+                color: #fff;
+            }
+        }
+        .left-content-scroll{
+            overflow-y: auto;
+            height: 850px;
+            ul{
+                padding:0px 28px 26px;
+                li{
+                    margin-bottom: 48px;
+                    a{
+                        display: flex;
+                        align-items: center;
+                        height: 18px;
+                        line-height: 22px;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: #333333;
+                        img{
+                            margin-right:15px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+    a{
+        &:hover{
+            text-decoration:none;
+        }
+    }
+    .arrow-left{
+        position: absolute;
+        right: -15px;
+        top: 15vh;
+        width: 20px;
+        height: 30px;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        cursor: pointer;
+        &:after{
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 1px solid;
+            display: block;
+            border-color: #1D96FF #1D96FF transparent transparent;
+            transform: rotate(45deg);
+            margin-left: 10px;
+        }
+        &.open{
+            &:after{
+                content: '';
+                width: 8px;
+                height: 8px;
+                border: 1px solid;
+                display: block;
+                border-color: #1D96FF transparent transparent #1D96FF;
+                transform: rotate(-45deg);
+                margin-left: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,301 @@
+@10px: 0.69444444vw;
+@font-face{
+    font-family: DinAlternate;
+    src: url('./font/DINAlternateBold.ttf'); 
+}
+.ml8{
+    margin-left: 8px;
+}
+#governmentHome{
+    background: #fff;
+    width: 100%;
+    min-width:1280px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    
+    .content{
+        display: flex;
+        align-items: flex-start;
+        margin-top: 15px;
+    
+        .middle{
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: calc(100% - 480px);
+            margin: 0 20px;
+            .middle-top {
+                width: 100%;
+                display: flex;
+                .mytask, .myoffice{
+                    width: 50%;
+                }
+            }
+            .middle-bottom{
+                width: 100%;
+                display: flex;
+                .fxqxt, .hexin{
+                    width: 50%;
+                }
+            }
+            .box{
+                flex: 1;
+                // width: calc((100% - @10px * 2) / 2);
+                height: 448px;
+                background: #FFFFFF;
+                margin:0 @10px * 2 20px 0;
+                border-radius: 2px;
+                box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.06);
+
+                &.myoffice,&.hexin{
+                    margin-right: 0;
+                }
+                &.fxqxt,&.hexin{
+                    height: 490px;
+                }
+                .sub-title{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size:18px;
+                    font-family: PingFangSC-Semibold, PingFang SC;
+                    font-weight: 600;
+                    background: #DAEBFC;
+                    border-radius: 2px 2px 0px 0px;
+                    color: #1D96FF;
+                    padding: 20px;
+                    .more{
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #1D96FF;
+                        font-family: PingFangSC-Regular, PingFang SC;
+                        img{
+                            margin-left: 4px;
+                        }
+                    }
+                }
+                .icon-left{
+                    //margin-top: 3px;
+                    &.icon-left2{
+                        width: 30px;
+                    }
+                    i{
+                        display: inline-block;
+                        text-align: center;
+                        font-size:14px;
+                        line-height: 20px;
+                        margin-right:5px;
+                    }
+                    .label-ji{
+                        width: 20px;
+                        height: 20px;
+                        background: #DA2626;
+                        border-radius:2px;
+                        color:#fff;
+                    }
+                    .label1{
+                        width: 34px;
+                        height: 20px;
+                        background: #F0FAF2;
+                        border-radius: 1px;
+                        color:#15BE50;
+                        border: 1px solid #15BE50;
+                    }
+                    .icon-level{
+                        width:20px;
+                        height: 20px;
+                        background: #DA2626;
+                        border-radius: 2px;
+                        color:#fff;
+                        margin-right: 5px;
+                        margin-top: 5px;
+                    }
+                }
+                .mytask-list{
+                    padding:20px 20px 0;
+                    .item{
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        height: 102px;
+                        background: #FFFFFF;
+                        // padding-right: @10px * 3.3;
+                        text-align: center;
+                        border-radius: 2px;
+                        border: 1px solid #EEEEEE;
+                        margin-bottom: 20px;
+                        &:nth-child(n){
+                            .titlebox{
+                                &::before{
+                                    background: linear-gradient(180deg, #FDDB02 0%, #FFBD03 100%);
+                                }
+                            }
+                        }
+                        &:nth-child(2n){
+                            .titlebox{
+                                &::before{
+                                    background: linear-gradient(180deg, #00EBC1 0%, #00D28E 100%);
+                                }
+                            }
+                        }
+                        &:nth-child(3n){
+                            .titlebox{
+                                &::before{
+                                    background: linear-gradient(180deg, #00E5FF 0%, #00C6FF 100%);
+                                }
+                            }
+                        }
+                        .titlebox{
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content:center;
+                            align-items: center;
+                            width: @10px * 10.2;
+                            height: 102px;
+                            background: #F5F6FA;
+                            border-radius: 2px 0px 0px 2px;
+                            &::before{
+                                position: absolute;
+                                    left: 0;
+                                    top:0;
+                                    content:'';
+                                    width: 4px;
+                                    height:100%;
+                                    border-radius: 2px 0px 0px 2px;
+                            }
+                            
+                        }
+                        .text1{
+                            margin-top:13px;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #2F2F32;
+                        }
+                        .text2{
+                            margin-top: 5px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #333333;
+                        }
+                        .count{
+                            font-family: DinAlternate;
+                            height: 28px;
+                            font-size:24px;
+                            font-weight: bold;
+                            color: #1D96FF;
+                            line-height: 28px;
+                        }
+                        small{
+                            font-size:14px;
+                            font-weight: 600;
+                            color: #1D96FF;
+                            margin-left: 2px;
+                        }
+                    }
+                }
+                .myoffice-list{
+                    padding:20px 20px 0;
+                    .item-text{
+                        display: flex;
+                        padding-bottom: 16px;
+                        padding-top: 12px;
+                        border-bottom: 1px solid #EEEEEE;
+                        .a-text{
+                            flex:1;
+                            //height: 44px;
+                            font-size:16px;
+                            font-weight: 400;
+                            color: #333333;
+                            line-height: 22px;
+                        }
+                    }
+                }
+                .fxqxt-list{
+                    padding:20px 20px 0;
+                    .item-text{
+                        display: flex;
+                        padding-bottom: 19px;
+                        padding-top: 17px;
+                        border-bottom: 1px solid #FFEEEEEE;
+                        .a-text-box{
+                            flex:1;
+                            font-size: 16px;
+                            font-weight: 400;
+                            color: #333333;
+                            margin-right: 10px;
+                            .a-text{
+                                display: block;
+                                height: 52px;
+                                line-height: 26px;
+                                overflow: hidden;
+                            }
+                            .a-time{
+                                font-size:16px;
+                                font-weight: 400;
+                                color: #999999;
+                                line-height: 26px;
+                                margin-top: 4px;
+                            }
+                        }
+                        .pic{
+                            width:120px;
+                        }
+                    }
+                }
+                .hexin-list{
+                    padding:20px 20px 0;
+                    .item{
+                        position: relative;
+                        height: 118px;
+                        background: #F5F6FA;
+                        border-radius: 2px;
+                        padding:36px 20px 10px;
+                        margin-bottom: 16px;
+                        .cornor{
+                            position: absolute;
+                            left:0;
+                            top:0;
+                            width: 78px;
+                            height: 22px;
+                            line-height: 22px;
+                            background: #1D96FF;
+                            text-align: center;
+                            color:#fff;
+                            border-radius: 2px 0px 4px 0px;
+                            &.color1{
+                                background: url(./img/label-yellow.png) no-repeat;
+                            }
+                            &.color2{
+                                background: url(./img/label-green.png) no-repeat;
+                            }
+                            &.color3{
+                                background: url(./img/label-blue.png) no-repeat;
+                            }
+                        }
+                        .text1{
+                            height: 22px;
+                            font-size:16px;
+                            font-weight: 400;
+                            color: #333333;
+                            line-height: 22px;
+                            margin-bottom: 8px;
+                        }
+                        .text2{
+                            width: 96px;
+                            height: 20px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #666666;
+                            line-height: 20px;
+                            margin-top: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,170 @@
+@charset "utf-8";
+* {
+  outline: none;
+}
+
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+body {
+  background: #fff;
+  color: #555;
+  font-size: 14px;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+td,
+th,
+caption {
+  font-size: 14px;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+i,
+b,
+strong {
+  font-style: normal;
+  font-weight: normal;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  border: none;
+  vertical-align: middle;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+input,
+textarea,
+select,
+button {
+  font: 14px Verdana, Helvetica, Arial, sans-serif;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 0px;
+  height: 8px;
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 8px;
+  border-radius: 4px;
+  background: #c8c8c8;
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 65% !important;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  html {
+    font-size: 80% !important;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  html {
+    font-size: 100% !important;
+  }
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.filter-container {
+  padding-bottom: 5px;
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
+}
+.app-container {
+  padding: 10px;
+}

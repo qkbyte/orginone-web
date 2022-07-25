@@ -1,0 +1,10 @@
+<span ng-if="property.value.expression.type != 'variables' && property.value.expression.staticValue">{{property.value.expression.staticValue|limitTo:20}}</span>
+<span style='display:block' ng-if="property.value && !property.value.expression&&item.type!='ne'&&item.type!='eq'" ng-repeat='item in property.value.formProperties'>${ {{item.name}}&nbsp;{{item.type}}&nbsp;{{item.variable|limitTo:20}} }</span>
+<span style='display:block' ng-if="property.value && !property.value.expression&&item.type=='ne'" ng-repeat='item in property.value.formProperties'>${ {{item.name}}&nbsp;!=&nbsp;{{item.variable|limitTo:20}} }</span>
+<span style='display:block' ng-if="property.value && !property.value.expression&&item.type=='eq'" ng-repeat='item in property.value.formProperties'>${ {{item.name}}&nbsp;==&nbsp;{{item.variable|limitTo:20}} }</span>
+<span ng-if="!property.value">{{'PROPERTY.SEQUENCEFLOW.CONDITION.NO-CONDITION-DISPLAY' | translate}}</span>
+
+<!-- <div ng-controller="FlowableConditionExpressionCtrl">
+	<span ng-if="property.value && property.value.id">{{form.name}}</span>
+	<span ng-if="!property.value || !property.value.id" translate>PROPERTY.FORMREFERENCE.EMPTY</span>
+</div> -->

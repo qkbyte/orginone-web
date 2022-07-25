@@ -1,0 +1,562 @@
+<div class="modal" ng-controller="FlowableUsernamesPopupCtrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                        ng-click="close()">&times;
+                </button>
+                <h2 translate>经办人/审批人</h2>
+            </div>
+            <div class="content_wrap" style="margin-top:20px;display:flex;flex-direction:column;align-items:center">
+                <div id="resultsZtree" class="ztree" style='flex:1;width:90%;border:1px dashed #adadad'>
+                </div>
+                <input id="fuserids" name="fuserids" type="hidden" ng-model="fuserids"/>
+                <input id="fusernames" name="fusernames" type="hidden" ng-model="fusernames"/>
+                <input id="liusernames" name="liusernames" type="hidden"/>
+
+                <div style='margin-top:10px;flex:2;width:90%;border:1px solid #ededed'>
+                    <div class="ui pointing secondary menu" style='justify-content: space-between;'>
+                        <a class="item item1 active" data-tab="first">岗位</a>
+                        <a class="item item2" data-tab="second">人员</a>
+<!--                        <a class="item item3" data-tab="third">角色</a>-->
+                        <a class="item item4" data-tab="forth">部门</a>
+                    </div>
+                    <!-- 岗位 -->
+
+                    <div class="ui tab  active" data-tab="first" id='item1' style='margin-right:-15px'>
+                        <ul id="orgZtree" class="ztree"
+                            style='border:none !important;background:none;overflow:auto;width:100%;height:170px'></ul>
+                    </div>
+                    <!-- 人员 -->
+                    <div class="ui tab" data-tab="second" id='item2'>
+                        <ul id="userZtree" class="ztree"
+                            style='border:none!important;width:100%;height:170px;background:none;overflow:auto'></ul>
+                    </div>
+                    <div class="ui tab" data-tab="third" id='item3'>
+                        <ul id="roleZtree" class="ztree"
+                            style='border:none !important;width:100%;height:170px;background:none;overflow:auto'></ul>
+                    </div>
+                    <div class="ui tab" data-tab="forth" id='item4'>
+                        <ul id="startZtree" class="ztree"
+                            style='border:none !important;width:100%;height:170px;background:none;overflow:auto'></ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click="save()" class="btn btn-primary" translate>确定</button>
+                    <button ng-click="close()" class="btn btn-primary" translate>取消</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var nodesArr = []//经办人标记；
+        var index = 1;
+        jQuery('.item2').click(function () {
+            index = 2;
+            jQuery('#item2').addClass('active')
+            jQuery('#item2').siblings().removeClass('active')
+            jQuery(this).addClass('active')
+            jQuery(this).siblings().removeClass('active')
+
+            jQuery('#userZtree li .chk').click(function () {
+                setTimeout(function () {
+                    if (!jQuery(this).hasClass('checkbox_true_full_focus')) {
+                        addUsers(index);
+                    }
+                }, 200)
+                console.log('treeObj.getCheckedNodes(false)=' + jQuery.fn.zTree.getZTreeObj("userZtree").getCheckedNodes(false))
+            })
+        })
+
+        jQuery('.item1').click(function () {
+            index = 1
+            jQuery('#item1').addClass('active')
+            jQuery('#item1').siblings().removeClass('active')
+            jQuery(this).addClass('active')
+            jQuery(this).siblings().removeClass('active')
+
+            jQuery('#orgZtree li .chk').click(function () {
+                setTimeout(function () {
+                    if (!jQuery(this).hasClass('checkbox_true_part_focus')) {
+                        addUsers(index)
+                    }
+                }, 200)
+            })
+        })
+        jQuery('.item3').click(function () {
+            index = 3
+            jQuery('#item3').addClass('active')
+            jQuery('#item3').siblings().removeClass('active')
+            jQuery(this).addClass('active')
+            jQuery(this).siblings().removeClass('active')
+
+            jQuery('#roleZtree li .chk').click(function () {
+                setTimeout(function () {
+                    if (!jQuery(this).hasClass('checkbox_true_part_focus')) {
+                        addUsers(index);
+                    }
+                }, 200)
+            })
+        })
+        jQuery('.item4').click(function () {
+            index = 4
+            jQuery('#item4').addClass('active')
+            jQuery('#item4').siblings().removeClass('active')
+            jQuery(this).addClass('active')
+            jQuery(this).siblings().removeClass('active')
+
+            jQuery('#startZtree li .chk').click(function () {
+                setTimeout(function () {
+                    if (!jQuery(this).hasClass('checkbox_true_part_focus')) {
+                        addUsers(index);
+                    }
+                }, 200)
+            })
+        })
+
+        var setting = {
+            check: {
+                enable: true,
+                chkboxType: {"Y": "", "N": ""}
+            }, view: {
+                dblClickExpand: dblClickExpand
+            }, data: {
+                simpleData: {
+                    enable: true
+                }
+            }, callback: {
+                onCheck: zTreeOnClick
+            }
+        };
+
+        function dblClickExpand(treeId, treeNode) {
+            return treeNode.level > 0;
+        }
+
+
+        function zTreeOnClick(event, treeId, treeNode) {
+            if (treeNode.checked) {
+                nodesArr.push(treeNode)
+            } else {
+
+                for (var i = 0; i < nodesArr.length; i++) {
+                    if (nodesArr[i].name == treeNode.name) {
+                        nodesArr.splice(i, 1)
+                    }
+                }
+            }
+
+
+            // console.log(event,treeId,treeNode)
+            //  var treeObj;
+            // if(index==2){
+            //    treeObj = jQuery.fn.zTree.getZTreeObj("userZtree");
+            //    console.log('treeObj.getCheckedNodes(false)='+treeObj.getCheckedNodes(false))
+            // nodes=subSet(treeObj.getCheckedNodes(true),treeObj.getCheckedNodes(false));
+            // console.log(nodes) //这是正常的（每一部分都正常）
+            // nodesArr=[...nodesArr,...nodes]
+            // }
+            // if(index==1){
+            //   treeObj = jQuery.fn.zTree.getZTreeObj("orgZtree");
+            //   nodes=subSet(treeObj.getCheckedNodes(true),treeObj.getCheckedNodes(false));
+            // console.log(nodes) //这是正常的（每一部分都正常）
+            // nodesArr=[...nodes,...nodesArr]
+            // nodesArr=dubRemove(nodesArr);
+            // }
+            // if(index==3){
+            //     treeObj = jQuery.fn.zTree.getZTreeObj("roleZtree");
+            //    nodes=subSet(treeObj.getCheckedNodes(true),treeObj.getCheckedNodes(false));
+            //  nodesArr=[...nodesArr,...nodes]
+
+            // console.log(dubRemove(nodesArr))
+            // }
+            // if(index==4){
+            //     treeObj=jQuery.fn.zTree.getZTreeObj("startZtree")
+            //     nodes=subSet(treeObj.getCheckedNodes(true),treeObj.getCheckedNodes(false));
+            // console.log(nodes) //这是正常的（每一部分都正常）
+            // nodesArr=[...nodes,...nodesArr]
+            // nodesArr=dubRemove(nodesArr);
+            // }
+
+            // console.log(dubRemove(nodesArr))
+            // nodesArr=dubRemove(nodesArr);
+            var v1 = "";//id
+            var v2 = "";//name
+            var v3 = "";//li 右边加入栏里面的写法
+            for (var i = 0; i < nodesArr.length; i++) {
+                if (i == (nodesArr.length - 1)) {
+                    v1 = v1 + nodesArr[i].id;
+                    v2 = v2 + nodesArr[i].name;
+                } else {
+                    v1 = v1 + nodesArr[i].id + ",";
+                    v2 = v2 + nodesArr[i].name + ",";
+                }
+                // nodeArr.push(nodes[i].name);
+                v3 = v3 + "<li class='yin'>" + nodesArr[i].name + "</li>";
+            }
+            jQuery('#fuserids').val(v1);
+            jQuery('#fusernames').val(v2);
+            jQuery('#liusernames').val(v3);
+        }
+
+
+        function addUsers(index) {
+            jQuery('#resultsZtree').html("");
+            jQuery('#resultsZtree').append(jQuery('#liusernames').val());
+        }
+
+
+        function dubRemove(arr) {
+            console.log(JSON.stringify(arr)+"131")
+
+
+            let res = [];
+            let repeat = [];
+            for (let i = 0; i < arr.length; i++) {
+                let name = arr[i].name;
+                if (!repeat[name]) {
+                    res.push(arr[i]);
+                    repeat[name] = 1
+                }
+            }
+            return res;
+        }
+
+
+        //数组对象去重
+        let arr = [];
+        let arr2 = [];
+        let arr3 = [];
+        let arr5 = [];
+        let arr4 = [{id: 'INTATOR@人员', name: '发起人', pId: 0, open: true}, {
+            id: 'CUR_SECTION',
+            name: '所属部门',
+            pId: 0,
+            open: true
+        }]
+
+        //嵌套对象扁平化处理（好难，想了两天┭┮﹏┭┮）
+        //我也觉得。。。┭┮﹏┭┮ pzk
+        function unflatten2(data) {
+            var result = {};
+            let obj = {}
+
+            function recurse(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+
+                        recurse(cur[i], prop + "[" + i + "]");
+                    if (l == 0)
+                        result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        if (cur.id == 'top' && !cur.parentId) {
+                            cur.parentId = 0;
+
+                        }
+                        obj = {id: cur.id, name: cur.unitName, pId: cur.parentId}
+                        if (obj.pId == 0 || obj.pId == 'top') {
+                            obj.open = true;
+                        }
+                        arr2.push(obj);
+
+                        recurse(cur[p], prop ? prop + "." + p : p);
+                    }
+                    if (isEmpty && prop)
+                        result[prop] = {};
+                }
+            }
+
+            recurse(data, "");
+
+
+            return arr2;
+        }
+
+        function unflatten(data) {
+            var result = {};
+            let obj = {}
+
+            function recurse(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+
+                        recurse(cur[i], prop + "[" + i + "]");
+                    if (l == 0)
+                        result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        obj = {id: cur.userId + '@人员', name: cur.realName, pId: 0, open: true}
+                        arr.push(obj);
+
+                        recurse(cur[p], prop ? prop + "." + p : p);
+                    }
+                    if (isEmpty && prop)
+                        result[prop] = {};
+                }
+            }
+
+            // console.log("153135"+data);
+
+            recurse(data, "");
+
+            return arr;
+        }
+
+
+        function unflattenG(data) {
+            var result = {};
+            let obj = {}
+
+            function recurseG(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+
+                        recurseG(cur[i], prop + "[" + i + "]");
+                    if (l == 0)
+                        result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        obj = {id: cur.id + '@jobName', name: cur.jobName, pId: 0, open: true}
+                        arr2.push(obj);
+
+                        recurseG(cur[p], prop ? prop + "." + p : p);
+                    }
+                    if (isEmpty && prop)
+                        result[prop] = {};
+                }
+            }
+
+            console.log("153135"+data);
+
+            recurseG(data, "");
+
+            return arr2;
+        }
+
+
+
+        function unflattenB(data) {
+            var result = {};
+            let obj = {}
+
+            function recurseB(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+
+                        recurseB(cur[i], prop + "[" + i + "]");
+                    if (l == 0)
+                        result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        obj = {id: cur.id + '@agencyName', name: cur.agencyName, pId: 0, open: true}
+                        arr3.push(obj);
+
+                        recurseB(cur[p], prop ? prop + "." + p : p);
+                    }
+                    if (isEmpty && prop)
+                        result[prop] = {};
+                }
+            }
+
+            console.log("153135"+data);
+
+            recurseB(data, "");
+
+            return arr3;
+        }
+
+
+        function unflattenJ(data) {
+            var result = {};
+            let obj = {}
+
+            function recurseJ(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+
+                        recurseJ(cur[i], prop + "[" + i + "]");
+                    if (l == 0)
+                        result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        obj = {id: cur.id + '@roleName', name: cur.roleName, pId: 0, open: true}
+                        arr5.push(obj);
+
+                        recurseJ(cur[p], prop ? prop + "." + p : p);
+                    }
+                    if (isEmpty && prop)
+                        result[prop] = {};
+                }
+            }
+
+            console.log("153135"+data);
+
+            recurseJ(data, "");
+
+            return arr5;
+        }
+
+        function unflatten3(data) {
+            var result = {};
+            let obj = {}
+
+            function recurse(cur, prop) {
+                if (Object(cur) !== cur) {
+                    result[prop] = cur;
+                } else if (Array.isArray(cur)) {
+                    for (var i = 0, l = cur.length; i < l; i++)
+
+                        recurse(cur[i], prop + "[" + i + "]");
+                    if (l == 0)
+                        result[prop] = [];
+                } else {
+                    var isEmpty = true;
+                    for (var p in cur) {
+                        isEmpty = false;
+                        if (cur.roleGroupName) {
+                            obj = {id: cur.id + '@人员', name: cur.roleGroupName, pId: 0, open: true}
+                        } else {
+                            obj = {id: cur.id + '@人员', name: cur.roleNameZh, pId: cur.groupId}
+                        }
+
+                        arr3.push(obj);
+
+                        recurse(cur[p], prop ? prop + "." + p : p);
+                    }
+                    if (isEmpty && prop)
+                        result[prop] = {};
+                }
+            }
+
+            recurse(data, "");
+            return arr3;
+        }
+
+        jQuery(document).ready(function () {
+            console.log(nodesArr);
+
+
+            let reg = new RegExp("(^|&)" + "token" + "=([^&]*)(&|$)", "i");
+            let r = window.location.search.substr(1).match(reg);
+            let rett = null;
+            if (r != null) {
+                rett = unescape(r[2]);
+            }
+
+            reg=new RegExp("(^|&)" + "tenant_id" + "=([^&]*)(&|$)", "i");
+            r = window.location.search.substr(1).match(reg);
+            let retTenantId=null;
+            if (r != null) {
+                retTenantId = unescape(r[2]);
+            }
+            // url: "/dev-api/scene/members?sceneId=e65edc60-96ee-11e9-ac96-005056c00001",
+
+            jQuery.ajax({
+                type: "GET",
+                dataType: "json",
+                url: `/dev-api/asset-system/person/get/person/tenantCode?tenantCode=${retTenantId}`,
+                headers: {
+                    "blade-auth": rett,
+                    Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0"
+                },
+                success: function (result) {
+                    jQuery.fn.zTree.init(jQuery("#userZtree"), setting, dubRemove(unflatten(result.data)));
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+
+
+            jQuery.ajax({
+                type: "GET",
+                dataType: "json",
+                url: `/dev-api/asset-system/jobs/v1/get/dept/job/role?flag=1&tenantCode=${retTenantId}`,
+                headers: {
+                    "blade-auth": rett,
+                    Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0"
+                },
+                success: function (result) {
+                    jQuery.fn.zTree.init(jQuery("#orgZtree"), setting, dubRemove(unflattenG(result.data)));
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+            jQuery.ajax({
+                type: "GET",
+                dataType: "json",
+                url: `/dev-api/asset-system/jobs/v1/get/dept/job/role?flag=2&tenantCode=${retTenantId}`,
+                headers: {
+                    "blade-auth": rett,
+                    Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0"
+                },
+                success: function (result) {
+                    jQuery.fn.zTree.init(jQuery("#startZtree"), setting, dubRemove(unflattenB(result.data)));
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+            jQuery.ajax({
+                type: "GET",
+                dataType: "json",
+                url: `/dev-api/asset-system/jobs/v1/get/dept/job/role?flag=3&tenantCode=${retTenantId}`,
+                headers: {
+                    "blade-auth": rett,
+                    Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0"
+                },
+                success: function (result) {
+                    jQuery.fn.zTree.init(jQuery("#roleZtree"), setting, dubRemove(unflattenJ(result.data)));
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            });
+
+
+            // jQuery.ajax({
+            //     type: "GET",
+            //     dataType: "json",
+            //     url: "/dev-api/scene/role/list-by-scene?sceneId=e65edc60-96ee-11e9-ac96-005056c00001&&page=1&&size=10",
+            //     headers: {
+            //         "blade-auth": rett,
+            //         Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0"
+            //     },
+            //     success: function (result) {
+            //         jQuery.fn.zTree.init(jQuery("#roleZtree"), setting, dubRemove(unflatten3(result.data)));
+            //     },
+            //     error: function (err) {
+            //         console.log(err)
+            //     }
+            // });
+
+
+            // jQuery.fn.zTree.init(jQuery("#startZtree"), setting, arr4);
+        });
+    </script>

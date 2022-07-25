@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="72px" height="49px" viewBox="0 0 72 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 49</title>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页（缺省）" transform="translate(-1147.000000, -224.000000)">
+            <g id="编组-49" transform="translate(1148.000000, 224.000000)">
+                <g id="编组-16" transform="translate(0.000000, 1.000000)">
+                    <path d="M64.37411,20.1092867 L65.9103303,20.0013389 C66.0677058,19.9902804 66.2137191,20.0480651 66.3162488,20.1619812 C66.4187786,20.2758972 66.469426,20.4366131 66.4570494,20.6087732 L66.1762718,24.5144129 C66.1504987,24.8729177 65.8639379,25.1822114 65.5362203,25.2052396 L64,25.3131873 L64.37411,20.1092867 Z" id="路径备份-113" fill="#46DBC9" fill-rule="nonzero" transform="translate(65.229441, 22.656594) rotate(40.440000) translate(-65.229441, -22.656594) "></path>
+                    <rect id="矩形备份-5" fill="#F1F5FF" x="6" y="2" width="37" height="36" rx="1"></rect>
+                    <polygon id="路径备份-115" stroke-opacity="0.6" stroke="#154AD8" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="67 26 42 31.428844 60.0660989 47"></polygon>
+                    <polygon id="矩形备份-19" stroke="#FEA940" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(9.500000, 38.500000) scale(-1, 1) rotate(-41.000000) translate(-9.500000, -38.500000) " points="4 39.3850978 5.20205206 36 15 37.6149022 13.7979479 41"></polygon>
+                    <path d="M18,2 L18,0.9 C18,0.402943725 18.4029437,9.13077564e-17 18.9,0 L23.7525581,0 L23.7525581,0 L29.5051163,0 L32.2,0 C32.6418278,-8.66006284e-16 33,0.3581722 33,0.8 L33,2 L33,2" id="路径-12备份-3" stroke="#1B3C87" stroke-width="0.5" fill="#FFFFFF"></path>
+                    <circle id="椭圆形备份-40" fill="#4862E0" cx="13.5" cy="8.5" r="1.5"></circle>
+                    <circle id="椭圆形备份-50" fill="#4862E0" cx="13.5" cy="14.5" r="1.5"></circle>
+                    <circle id="椭圆形备份-51" fill="#4862E0" cx="13.5" cy="20.5" r="1.5"></circle>
+                    <circle id="椭圆形备份-52" fill="#4862E0" cx="13.5" cy="26.5" r="1.5"></circle>
+                    <path d="M8,34 L8,5 C8,3.34314575 9.34314575,2 11,2 L12.0514199,2 L12.0514199,2 L16.6705723,2 L40,2 C41.6568542,2 43,3.34314575 43,5 L43,14.7495131 L43,14.7495131" id="路径-11备份-7" stroke="#1B3C87" stroke-width="0.5"></path>
+                    <line x1="18" y1="8" x2="39" y2="8" id="路径备份-109" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="18" y1="14" x2="39" y2="14" id="路径备份-110" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="18" y1="20" x2="29" y2="20" id="路径备份-111" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="18" y1="27" x2="28" y2="27" id="路径备份-112" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <path d="M0.453885593,26.6676379 C-0.775700963,34.1980163 0.49294627,39.0552837 4.25982729,41.2394401 C8.02670831,43.4235964 11.2980655,43.1009885 14.0738989,40.2716162 C16.0702307,38.1323609 16.0702307,36.5314364 14.0738989,35.4688427 C12.077567,34.406249 10.5886474,35.264669 9.60714006,38.0441029 C8.89814087,41.9845871 14.0570708,44.7044333 25.0839297,46.2036414 C41.6242181,48.4524536 36.3344107,22.1747564 43.9867834,13.2789723 C49.0883651,7.34844951 54.862912,7.58256711 61.310424,13.9813251" id="路径-13备份-3" stroke="#1B3C87" stroke-width="0.5" transform="translate(30.655212, 27.669778) scale(-1, 1) translate(-30.655212, -27.669778) "></path>
+                    <line x1="26.5371318" y1="38" x2="42" y2="38" id="路径-20" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round"></line>
+                </g>
+                <path d="M52.3628011,2.34758539 L69.124408,8.39396819 C69.6178026,8.57194951 69.8898375,9.10090328 69.747624,9.60577054 L67.3916902,17.9694935 C67.2419474,18.5010907 66.6896122,18.8106447 66.158015,18.6609019 C66.136139,18.6547398 66.1144795,18.6478336 66.0930741,18.6401956 L48.922637,12.5132832 C48.410034,12.3303715 48.1378377,11.7710995 48.3101552,11.2548387 L51.0749192,2.9716453 C51.2497775,2.44777222 51.8162113,2.16483986 52.3400844,2.3396982 C52.3476879,2.34223612 52.3552607,2.34486537 52.3628011,2.34758539 Z" id="矩形备份-6" fill="#C9D4FF"></path>
+                <path d="M38,4.00043189 C37.999849,2.3825386 38.9743481,0.92387653 40.4690577,0.304665795 C41.9637673,-0.314544939 43.684304,0.0276493485 44.8283273,1.17167267 C45.9723507,2.315696 46.3145449,4.03623272 45.6953342,5.53094233 C45.0761235,7.02565193 43.6174614,8.00015104 41.9995681,8 C39.7906676,8 38,6.20933236 38,4.00043189 L38,4.00043189 Z" id="路径" fill="#FEA940"></path>
+                <polyline id="路径" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(59.000000, 10.500000) rotate(19.000000) translate(-59.000000, -10.500000) " points="56.3870434 5 69 5 69 16 49 16 49 8.59854373"></polyline>
+                <line x1="64" y1="10" x2="66" y2="15" id="路径" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="53" y1="6" x2="59" y2="11" id="路径" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="59" y1="11" x2="70" y2="9" id="路径" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="48" y1="12.3396529" x2="55.7458106" y2="8.39498233" id="路径" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

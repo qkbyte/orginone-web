@@ -1,0 +1,620 @@
+<template>
+  <div>
+    <div class="flex-center">
+      <div class="app-info">
+        <div class="diy-dialog-body">
+          <div class="app-info_body">
+            <div class="title">注册信息</div>
+            <el-form
+              ref="form"
+              :model="form"
+              label-position="top"
+              :rules="rules"
+              disabled
+            >
+              <el-form-item
+                v-for="item in formItem"
+                v-bind="item"
+                :key="item.prop"
+                :label-width="options.labelWidth"
+                :class="item.class ? item.class : ''"
+                :prop="item.prop"
+              >
+                <el-input
+                  v-if="item.prop === 'appName'"
+                  v-model="form.appName"
+                  placeholder="请输入应用名称"
+                ></el-input>
+                <el-input
+                  v-if="item.prop === 'icon'"
+                  v-model="form.icon"
+                  ref="input"
+                >
+                  <img
+                    v-if="inputImg != ''"
+                    style="width:30px;height:30px;margin-left:10px"
+                    slot="prefix"
+                    :src="inputImg"
+                    alt
+                  />
+                </el-input>
+                <el-input
+                  v-if="item.prop === 'version'"
+                  v-model="form.version"
+                  placeholder="请输入版本号"
+                ></el-input>
+                <el-select
+                  v-if="item.prop === 'platform'"
+                  v-model="form.platform"
+                  placeholder="请选择适配平台"
+                >
+                  <el-option
+                    v-for="item in platform"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+                <el-select
+                  v-if="item.prop === 'appType'"
+                  v-model="form.appType"
+                  placeholder="请选择应用类型"
+                >
+                  <el-option
+                    v-for="item in appType"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+                <el-select
+                  v-if="item.prop === 'targetUser'"
+                  v-model="form.targetUser"
+                  placeholder="请选择目标用户"
+                >
+                  <el-option
+                    v-for="item in targetUser"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+                <el-select
+                  v-if="item.prop === 'appField'"
+                  v-model="form.appField"
+                  placeholder="请选择应用领域"
+                >
+                  <el-option
+                    v-for="item in appField"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+                <el-input
+                  v-if="item.prop === 'contactName'"
+                  v-model="form.contactName"
+                  placeholder="请输入负责人姓名"
+                ></el-input>
+                <el-input
+                  v-if="item.prop === 'contact'"
+                  v-model="form.contact"
+                  placeholder="请输入负责人联系方式"
+                ></el-input>
+                <el-input
+                  v-if="item.prop === 'description'"
+                  type="textarea"
+                  maxlength="150"
+                  show-word-limit
+                  v-model="form.description"
+                  placeholder="请输入应用介绍"
+                ></el-input>
+                <el-input
+                  v-if="item.prop === 'appMail'"
+                  v-model="form.appMail"
+                  placeholder="请输入公司邮箱"
+                ></el-input>
+                <el-input
+                  v-if="item.prop === 'appAddress'"
+                  v-model="form.appAddress"
+                  placeholder="请输入公司官网"
+                ></el-input>
+                <span v-if="item.prop === 'appPhoto'" slot="label">
+                  应用图片(只能上传5张)
+                  <diy-help content="上传的图片会被压缩至 800*426"></diy-help>
+                </span>
+                <div v-if="item.prop === 'appPhoto'" class="app-info_image">
+                  <template>
+                    <div
+                      v-for="(item, index) in imageList"
+                      :key="index"
+                      class="image"
+                      v-bind:style="{
+                        'background-image': 'url(' + item.url + ')',
+                        'background-repeat': 'no-repeat',
+                        'background-size': '100% 100%',
+                      }"
+                      @mousemove="mousemove(index)"
+                    >
+                      <div
+                        v-if="isShow && mgindex == index"
+                        class="appPhoto-hover"
+                        @mouseleave="mouseleave"
+                      >
+                        <div
+                          class="el-icon-zoom-in"
+                          @click="handlePictureCardPreview(item)"
+                        ></div>
+                      </div>
+                    </div>
+                  </template>
+                </div>
+                <!-- 正式环境 -->
+                <template v-if="CURRENT_ENV === 'production'">
+                  <el-upload
+                    v-if="item.prop === 'appPhoto'"
+                    class="upload-demo"
+                    action="/dev-api/asset-minio/aliyunoss/uploadIconV2"
+                    :on-success="handleAvatarSuccess"
+                    :before-upload="beforeAvatarUpload"
+                    :show-file-list="false"
+                    :headers="uploadHeader"
+                    name="icon"
+                  >
+                    <div class="photoBtn">
+                      <el-button size="mini">上传图片</el-button>
+                    </div>
+                  </el-upload>
+                </template>
+                <!-- 测试环境 -->
+                <template v-else>
+                  <el-upload
+                    v-if="item.prop === 'appPhoto'"
+                    class="upload-demo"
+                    action="/dev-api/asset-minio/aliyunoss/uploadIconV2"
+                    :on-success="handleAvatarSuccess"
+                    :before-upload="beforeAvatarUpload"
+                    :show-file-list="false"
+                    :headers="uploadHeader"
+                    name="icon"
+                  >
+                    <div class="photoBtn">
+                      <el-button size="mini">上传图片</el-button>
+                    </div>
+                  </el-upload></template
+                >
+                <el-dialog :visible.sync="dialogVisible">
+                  <img width="100%" :src="editForm.uploadingurl" alt />
+                </el-dialog>
+              </el-form-item>
+            </el-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from "vuex";
+import { getDictItemList } from "@utils/index";
+import { getTenanticonList, getAppInfo } from "@api/market";
+export default {
+  data() {
+    return {
+      options: {
+        labelWidth: "100px",
+      },
+      formItem: [
+        {
+          label: "应用名称",
+          prop: "appName",
+        },
+        {
+          label: "应用图标",
+          prop: "icon",
+        },
+        {
+          label: "版本号",
+          prop: "version",
+        },
+        {
+          label: "适配平台",
+          prop: "platform",
+        },
+        {
+          label: "应用类型",
+          prop: "appType",
+        },
+        {
+          label: "目标用户",
+          prop: "targetUser",
+        },
+        {
+          label: "应用领域",
+          prop: "appField",
+        },
+        {
+          label: "应用介绍",
+          prop: "description",
+          class: "form-item--all",
+        },
+        {
+          label: "应用图片(只能上传5张)",
+          prop: "appPhoto",
+          class: "form-item--all",
+        },
+        {
+          label: "负责人姓名",
+          prop: "contactName",
+        },
+        {
+          label: "负责人联系方式",
+          prop: "contact",
+        },
+        {
+          label: "公司邮箱",
+          prop: "appMail",
+        },
+        {
+          label: "公司官网",
+          prop: "appAddress",
+        },
+      ],
+      form: {
+        appName: "",
+        version: "",
+        icon: "",
+        contact: "",
+        contactName: "",
+        platform: 1,
+        description: "",
+        tenantId: "",
+        targetUser: "",
+        saleStatus: 0,
+        appType: "",
+        appField: "",
+        status: "",
+        appAddress: "",
+        appMail: "",
+        appPhoto: "",
+      },
+      appType: [],
+      appField: [],
+      targetUser: [],
+      platform: [],
+      rules: {
+        appName: [
+          { required: true, message: "请输入应用名称", trigger: "blur" },
+        ],
+        version: [{ required: true, message: "请输入版本号", trigger: "blur" }],
+        platform: [
+          { required: true, message: "请选择适配平台", trigger: "change" },
+        ],
+        appType: [
+          { required: true, message: "请选择应用类型", trigger: "change" },
+        ],
+        targetUser: [
+          { required: true, message: "请选择目标用户", trigger: "change" },
+        ],
+        contactName: [
+          { required: true, message: "请输入负责人姓名", trigger: "blur" },
+        ],
+        appField: [
+          { required: true, message: "请选择应用领域", trigger: "change" },
+        ],
+        contact: [
+          { required: true, message: "请输入负责人联系方式", trigger: "blur" },
+        ],
+        description: [
+          { required: true, message: "请输入应用介绍", trigger: "blur" },
+        ],
+        appMail: [
+          { required: true, message: "请输入应用邮箱", trigger: "blur" },
+        ],
+        appAddress: [
+          { required: true, message: "请输入应用地址", trigger: "blur" },
+        ],
+      },
+      dialogVisible: false,
+      productImgs: [],
+      imgLimit: 5, //文件个数
+      hideUploadEdit: false,
+      editForm: {
+        uploadingurl: "",
+      },
+      uploadHeader: {
+        Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0",
+        "blade-auth": localStorage.getItem("ZCY_TOKEN"),
+      },
+      imageUrl: "",
+      imageList: [],
+      isShow: false,
+      mgindex: 0,
+      popoverImg: [],
+      inputImg: {},
+      isImg: false,
+      tenantIcon: "",
+      placeholder: "请选择应用图标",
+    };
+  },
+  mounted() {
+    let token = localStorage.getItem("ZCY_TOKEN");
+    this.uploadHeader = {
+      Authorization: "Basic c3dvcmQ6c3dvcmRfc2VjcmV0",
+      "blade-auth": token,
+    };
+    this.getIconList();
+  },
+  async created() {
+    this.appType = await getDictItemList(this.dict.APP_TYPE);
+    this.targetUser = await getDictItemList(this.dict.APP_TARGET);
+    this.platform = await getDictItemList(this.dict.APP_PLATFORM);
+    this.appField = await getDictItemList(this.dict.APP_FIELD);
+    this.form.tenantId = this.curTenantCode;
+    this.imageList = this.getImageList;
+    this.hanleIcon();
+  },
+  computed: {
+    ...mapGetters("tenant", ["curTenantCode"]),
+    getImageList() {
+      let list = this.form.appPhoto.split(",");
+      let image = [];
+      if (list != "") {
+        list.forEach((element) => {
+          image.push({ url: element });
+        });
+      }
+      return image;
+    },
+  },
+  methods: {
+    hanleIcon() {
+      if (this.form.icon == "") {
+        this.inputImg = "";
+      }
+      console.log("image", this.inputImg);
+    },
+    setInputData() {
+      console.log(this.formData);
+    },
+    // 获取图标
+    getIconList() {
+      let params = {
+        tenantIcon: this.tenantIcon,
+      };
+
+      getTenanticonList(params).then((res) => {
+        this.popoverImg = res.data.data;
+      });
+    },
+    onClickImg(data) {
+      this.inputImg = data.icon;
+      this.form.icon = " ";
+      this.isImg = true;
+    },
+    mousemove(index) {
+      this.isShow = true;
+      this.mgindex = index;
+    },
+    mouseleave() {
+      this.isShow = false;
+    },
+    handleAvatarSuccess(res, file) {
+      let _this = this;
+      let photoUrl = res.data;
+      this.productImgs.push(photoUrl);
+      this.imageList.push({ url: photoUrl });
+      this.form.appPhoto = this.productImgs.join();
+    },
+    beforeAvatarUpload(file) {
+      if (this.imageList.length >= 5) {
+        this.$message.error("上传图片只能5张");
+        return false;
+      } else {
+        const isJPG = file.type === "image/jpeg";
+        const isPNG = file.type === "image/png";
+        if (!isJPG && isPNG) {
+          this.$message.error("上传图片只能是 JPG 或 PNG 格式!");
+        }
+        return isJPG || isPNG;
+      }
+    },
+    handleRemove(file) {
+      //移除图片
+      console.log(file);
+      let del = 0;
+      for (let i = 0; i < this.imageList.length; i++) {
+        if ((file.url = this.imageList[i].url)) {
+          del = i;
+        }
+      }
+      this.imageList.splice(del, 1);
+      this.productImgs.splice(del, 1);
+      this.form.appPhoto = this.form.appPhoto.replace(file.url, "");
+    },
+    handlePictureCardPreview(file) {
+      //预览图片时调用
+      console.log(file);
+      this.editForm.uploadingurl = file.url;
+      console.log(this.editForm.uploadingurl);
+      this.dialogVisible = true;
+    },
+    handleExceed(files, fileList) {
+      //图片上传超过数量限制
+      this.$message.error("上传图片不能超过5张!");
+      console.log(files, fileList);
+    },
+    imgUploadError(err, file, fileList) {
+      //图片上传失败调用
+      console.log(err);
+      this.$message.error("上传图片失败!");
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: rgba(48, 49, 51, 1);
+  padding-left: 10px;
+  border-left: 4px solid rgba(21, 74, 216, 1);
+  margin: 30px 0;
+}
+.popover-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 100px;
+  overflow: auto;
+  &__img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+  }
+}
+.photoBtn {
+  .el-button,
+  .el-button--default:focus {
+    padding: 8px;
+    font-size: 10px;
+  }
+}
+.app-info_image {
+  display: flex;
+  flex-direction: row;
+  .image {
+    margin-right: 10px;
+    width: 130px;
+    height: 130px;
+    position: relative;
+  }
+  .appPhoto-hover {
+    position: absolute;
+    top: 0;
+    width: 130px;
+    height: 130px;
+    background-color: rgba(0, 0, 0, 0.3);
+    .el-icon-zoom-in {
+      color: #f1f1f1;
+      position: absolute;
+      left: 35px;
+      top: 50%;
+      transform: translate(0, -50%);
+      cursor: pointer;
+    }
+    .el-icon-delete {
+      color: #f1f1f1;
+      position: absolute;
+      left: 95px;
+      top: 50%;
+      transform: translate(0, -50%);
+      cursor: pointer;
+    }
+  }
+}
+.app-info {
+  width: 800px;
+  .diy-dialog-body .el-form {
+    justify-content: space-between;
+  }
+  &_header {
+    margin-top: 22px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .header-icon {
+      img {
+        height: 40px;
+        width: 40px;
+      }
+      margin-right: 16px;
+    }
+    .header-name {
+      font-size: 16px;
+      color: #000;
+      line-height: 22px;
+      font-weight: bold;
+    }
+  }
+  &_body {
+    margin-left: 58px;
+    width: 100%;
+    color: #58657d;
+    font-weight: 600;
+    .body-firstFloor {
+      display: flex;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+    .first {
+      width: 240px;
+    }
+    .body-secondFloor {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+    .body-thirdFloor {
+      display: flex;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+    .body-fourthFloor {
+      display: flex;
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 6px;
+    }
+  }
+}
+.diy-dialog-body ::v-deep .el-form-item {
+  &__label {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    color: rgba(144, 147, 153, 1);
+  }
+
+  &__content {
+    .el-input,
+    .el-textarea {
+      &__inner,
+      &__count {
+        background: rgba(242, 244, 249, 1);
+        border: 0px;
+        border-radius: 4px;
+      }
+    }
+
+    .el-input,
+    .el-select {
+      width: 340px;
+    }
+
+    .el-textarea {
+      &__inner {
+        height: 80px;
+      }
+    }
+  }
+}
+.diy-dialog-body ::v-deep .form-item--all {
+  width: 100%;
+  .el-input,
+  .el-textarea {
+    width: 100%;
+  }
+}
+</style>

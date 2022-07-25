@@ -1,0 +1,108 @@
+{
+  "_from": "form-making",
+  "_id": "form-making@1.2.8",
+  "_inBundle": false,
+  "_integrity": "sha512-TaUgait9/yJCga5f/37RdqTGF/6keicyVy8qKeW0O0sixNXTUori1oVA/BD2HoV35klgiRKqxn5KUUsktKnCOg==",
+  "_location": "/form-making",
+  "_phantomChildren": {
+    "follow-redirects": "1.5.10",
+    "is-buffer": "2.0.4"
+  },
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "form-making",
+    "name": "form-making",
+    "escapedName": "form-making",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/form-making/-/form-making-1.2.8.tgz",
+  "_shasum": "07cdf906822491ce3042c3f5f91443c9f3fb2cce",
+  "_spec": "form-making",
+  "_where": "E:\\feature-flowable\\new\\assetstore",
+  "author": {
+    "name": "GavinZhulei"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "bugs": {
+    "url": "https://github.com/GavinZhuLei/vue-form-making/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "clipboard": "^2.0.1",
+    "element-ui": "^2.9.1",
+    "normalize.css": "^8.0.0",
+    "qiniu": "^7.2.1",
+    "qiniu-js": "^2.5.1",
+    "viewerjs": "^1.2.0",
+    "vue": "^2.6.5",
+    "vue-i18n": "5.0.3",
+    "vue-router": "^3.0.1",
+    "vue2-editor": "^2.10.2",
+    "vuedraggable": "^2.16.0"
+  },
+  "deprecated": false,
+  "description": "A designer and generator of form base on Vue.js, make form development simple and efficient.",
+  "devDependencies": {
+    "@babel/core": "^7.0.1",
+    "@types/ace": "0.0.42",
+    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-service": "^3.0.0",
+    "babel-core": "^6.26.3",
+    "core-js": "^2.6.5",
+    "node-sass": "^4.9.0",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-buble": "^0.19.2",
+    "rollup-plugin-uglify-es": "0.0.1",
+    "rollup-plugin-vue": "^3.0.0",
+    "sass-loader": "^7.0.1",
+    "terser-webpack-plugin": "^1.2.4",
+    "vue-template-compiler": "^2.6.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential"
+    ]
+  },
+  "homepage": "https://github.com/GavinZhuLei/vue-form-making#readme",
+  "keywords": [
+    "component",
+    "vue",
+    "form",
+    "element-ui",
+    "auto"
+  ],
+  "license": "LGPL",
+  "main": "dist/FormMaking.common.js",
+  "name": "form-making",
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GavinZhuLei/vue-form-making.git"
+  },
+  "scripts": {},
+  "version": "1.2.8"
+}

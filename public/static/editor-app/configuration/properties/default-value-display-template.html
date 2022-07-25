@@ -1,0 +1,8 @@
+
+<span ng-if="!property.noValue">{{property.value|limitTo:20}}</span><!-- 当属性值存在时候 -->
+<span ng-if="property.noValue&&property.key=='oryx-name'">{{property.name|limitTo:20}}</span>
+<span ng-if="!property.noValue && property.value != null && property.value.length > 20">...</span>
+<span ng-if="property.noValue&&property.key!='oryx-name'&&property.key!='oryx-overrideid'" translate>PROPERTY.EMPTY</span>
+<span ng-if="property.noValue&&property.key=='oryx-overrideid'">{{property.id}}</span>
+<span ng-if="property.noValue&&property.key=='oryx-documentation'">{{property.type}}</span>
+<!-- {"key":"oryx-name","title":"名称","description":"The descriptive name of the BPMN element.","type":"string","mode":"read","hidden":false,"value":"test1051","readModeTemplateUrl":"editor-app/configuration/properties/default-value-display-template.html?version=1564194199897","writeModeTemplateUrl":"editor-app/configuration/properties/string-property-write-mode-template.html?version=1564194199897","hasReadWriteMode":true} id oryx-overrideid-->

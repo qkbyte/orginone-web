@@ -1,0 +1,42 @@
+   <span ng-click="group.expanded = !group.expanded">
+    {{group.name | translate}}
+    <i class="glyphicon"
+           ng-class="{'glyphicon-chevron-right pull-right': group.expanded, 'glyphicon-chevron-down pull-right': !group.expanded}"></i>
+       
+    </span> <!--控制面板的折叠与关闭-->
+
+<!-- Child groups -->
+<ul ng-repeat="group in group.groups"
+    class="stencil-group stencil-group-non-root"
+    ng-class="{collapsed: !group.expanded, 'first': $first}"
+    ng-include="'editor-app/partials/stencil-item-template.html?version=5'">
+</ul>
+
+<!-- Group items -->
+<ul>
+    <li ng-repeat="item in group.paletteItems" class="stencil-item"
+        id="{{item.id}}"
+        title="{{item.description | translate}}"
+      
+        data-drag="true"
+        jqyoui-draggable="{onStart:'startDragCallback', onDrag:'dragCallback'}"
+        data-jqyoui-options="{revert: 'invalid', helper: 'clone', opacity : 0.5}" 
+        ng-if='item.visible'
+        >
+        <div >
+            <img ng-if="!item.customIcon" ng-src="editor-app/stencilsets/bpmn2.0/icons/{{item.icon}}" 
+            width="32px;"
+            height="32px;" />
+  <!--           <img ng-if="!item.customIcon&&item.icon=='activity/list/type.service.svg'" ng-src="editor-app/stencilsets/bpmn2.0/icons/activity/list/type.user.svg" 
+            width="32px;"
+            height="32px;" > -->
+            <img ng-if="item.customIcon"  ng-src="{{getImageUrl(item.icon)}}" width="32px;" height="32px;"/>
+        </div>
+        <div >{{item.name | translate}}</div>
+       
+      <!--  <div ng-if="item.name=='用户任务'">经办节点</div>
+        <div ng-if="item.name=='服务任务'">审批节点</div>
+        <div ng-if="item.name=='脚本任务'">抄送节点</div>
+        <div ng-if="item.name!='用户任务'&&item.name!='服务任务'&&item.name!='脚本任务'">{{item.name | translate}}</div>-->
+    </li>
+</ul>

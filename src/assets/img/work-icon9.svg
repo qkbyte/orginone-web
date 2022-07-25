@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="101px" height="49px" viewBox="0 0 101 49" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 4</title>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页（缺省）" transform="translate(-542.000000, -219.000000)">
+            <g id="编组-4" transform="translate(543.000000, 220.000000)">
+                <path d="M76.187124,30.0004793 L77.7090044,29.8933118 C77.8649108,29.8823331 78.0095511,29.9395528 78.1111051,30.0523831 C78.2126595,30.1652134 78.2628091,30.3244118 78.2505218,30.4949565 L77.9717738,34.3639491 C77.9461868,34.7190901 77.662257,35.0255218 77.3375983,35.0483836 L75.8157179,35.1555512 L76.187124,30.0004793 Z" id="路径备份-113" fill="#D8DFFF" fill-rule="nonzero" transform="translate(77.034032, 32.523765) rotate(40.440000) translate(-77.034032, -32.523765) "></path>
+                <circle id="椭圆形备份-49" fill="#FB5D64" fill-rule="nonzero" cx="44.5" cy="10.5" r="2.5"></circle>
+                <rect id="矩形备份-5" fill="#F1F5FF" fill-rule="nonzero" x="29" y="13" width="63" height="28" rx="1"></rect>
+                <polygon id="路径备份-114" fill="#4762E0" fill-rule="nonzero" transform="translate(62.205068, 20.972929) rotate(45.000000) translate(-62.205068, -20.972929) " points="50.2448304 20.8781918 46.268209 24.2589686 50.3062219 26.1710378 50.3062219 26.1710378 78.141926 21.0676653 78.080534 15.7748195"></polygon>
+                <polygon id="路径备份-115" stroke="#3BDCC9" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" points="61 26 36 31.428844 54.0660987 47"></polygon>
+                <polygon id="矩形备份-19" stroke="#4762E0" stroke-width="0.5" fill="#B9C8FF" fill-rule="nonzero" stroke-linecap="round" stroke-linejoin="round" transform="translate(79.500000, 39.500000) scale(-1, 1) translate(-79.500000, -39.500000) " points="72 41.093176 73.6391623 35 87 37.906824 85.3608381 44"></polygon>
+                <path d="M10,2 L10,0.899999999 C10,0.402943725 10.4029437,0 10.9,0 L15.7525581,0 L15.7525581,0 L21.5051163,0 L24.2,0 C24.6418278,0 25,0.3581722 25,0.799999998 L25,2 L25,2" id="路径-12备份-3" stroke="#1B3C87" stroke-width="0.5" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <rect id="矩形备份-6" fill="#E3EAFF" fill-rule="nonzero" x="0" y="4" width="35" height="34" rx="1"></rect>
+                <circle id="椭圆形备份-40" fill="#4862E0" fill-rule="nonzero" cx="5.5" cy="8.5" r="1.5"></circle>
+                <circle id="椭圆形备份-50" fill="#4862E0" fill-rule="nonzero" cx="5.5" cy="14.5" r="1.5"></circle>
+                <circle id="椭圆形备份-51" fill="#4862E0" fill-rule="nonzero" cx="5.5" cy="20.5" r="1.5"></circle>
+                <circle id="椭圆形备份-52" fill="#4862E0" fill-rule="nonzero" cx="5.5" cy="26.5" r="1.5"></circle>
+                <path d="M0,34 L0,5 C0,3.34314575 1.34314575,2 3,2 L4.05141989,2 L4.05141989,2 L8.67057235,2 L32,2 C33.6568542,2 35,3.34314575 35,5 L35,14.7495131 L35,14.7495131" id="路径-11备份-7" stroke="#1B3C87" stroke-width="0.5"></path>
+                <line x1="10" y1="8" x2="31" y2="8" id="路径备份-109" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="10" y1="14" x2="31" y2="14" id="路径备份-110" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="10" y1="20" x2="21" y2="20" id="路径备份-111" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="10" y1="26" x2="20" y2="26" id="路径备份-112" stroke="#1B3C87" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round"></line>
+                <path d="M0,33.8023176 C0,39.112949 4.01230127,42.6751622 6.50611998,43.2919442 C8.99993869,43.9087261 13.3248062,44.9519346 16.0883738,42.1306039 C18.0758844,39.9974287 18.0758844,37.4959833 16.0883738,36.4364096 C14.1008633,35.376836 11.9094525,36.0518529 10.9322821,38.8233873 C10.6444458,40.4256609 11.1128446,42.1832654 12.499732,43.2919442 C14.5139339,44.9020985 18.089622,46.1899312 24.9654301,45.9768774 C38.6571921,45.552625 49.6890525,25.1657297 53.728792,19.3390895 C54.4821898,18.2524402 57.1737086,15.1670707 58.8470854,13.6331786 C66.6704536,6.46192922 82.6002579,0.831579622 93.8417977,13.6331786 C100.612411,21.3433929 101.250178,29.2516563 92.5496466,39.949567" id="路径-13备份-3" stroke="#1B3C87" stroke-width="0.5"></path>
+            </g>
+        </g>
+    </g>
+</svg>

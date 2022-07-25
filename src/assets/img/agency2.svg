@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="20px" viewBox="0 0 56 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>标签/已通过大</title>
+    <g id="规范" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标签" transform="translate(-119.000000, -447.000000)">
+            <g id="编组-96备份-7" transform="translate(119.500000, 447.000000)">
+                <g id="标签/审批中20角" fill="#64C42D">
+                    <path d="M10,0 L45,0 C50.5228475,-1.01453063e-15 55,4.4771525 55,10 C55,15.5228475 50.5228475,20 45,20 L9.26380575,20 C6.88781285,20 5.39632089,19.6286976 4.09261719,18.9314692 C2.78891348,18.2342408 1.76575919,17.2110865 1.06853082,15.9073828 C0.371302445,14.6036791 1.36203643e-16,13.1121871 -1.54771566e-16,10.7361943 L0,10 C-6.76353751e-16,4.4771525 4.4771525,1.01453063e-15 10,0 Z" id="矩形" opacity="0.2"></path>
+                    <circle id="椭圆形" cx="12" cy="10" r="2.5"></circle>
+                    <text id="已拒绝" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" letter-spacing="0.376190667">
+                        <tspan x="19.6238093" y="14">已办</tspan>
+                    </text>
+                </g>
+                <g id="编组-98" transform="translate(4.000000, 2.000000)"></g>
+            </g>
+        </g>
+    </g>
+</svg>

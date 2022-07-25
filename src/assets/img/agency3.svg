@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="18px" viewBox="0 0 56 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 96备份 9</title>
+    <g id="规范" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="标签" transform="translate(-119.000000, -575.000000)" fill="#20C2C2">
+            <g id="标签/审批中20角" transform="translate(119.000000, 575.000000)">
+                <path d="M9,0 L47,0 C51.9705627,-9.13077564e-16 56,4.02943725 56,9 C56,13.9705627 51.9705627,18 47,18 L9,18 C4.02943725,18 6.08718376e-16,13.9705627 0,9 C-6.08718376e-16,4.02943725 4.02943725,9.13077564e-16 9,0 Z" id="矩形" opacity="0.2"></path>
+                <circle id="椭圆形" cx="8.00980392" cy="8.5" r="2.5"></circle>
+                <text id="已完结" font-family="PingFangSC-Medium, PingFang SC" font-size="12" font-weight="400" letter-spacing="0.376190667">
+                    <tspan x="14.435714" y="13">已完结</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

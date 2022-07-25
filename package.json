@@ -1,0 +1,77 @@
+{
+  "name": "assetcloudadmin",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:stage": "vue-cli-service build --mode staging",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@assetcloud/asset-sdk": "^2.1.10",
+    "axios": "^0.19.0",
+    "bpmn-js": "^7.2.1",
+    "bpmn-js-properties-panel": "^0.34.0",
+    "bpmn-moddle": "^6.0.0",
+    "core-js": "^3.1.2",
+    "cross-env": "^7.0.2",
+    "crypto-js": "^4.0.0",
+    "echarts": "^4.5.0",
+    "el-tree-transfer": "^2.2.6",
+    "element-ui": "^2.12.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "file-save": "^0.2.0",
+    "form-making": "^1.2.8",
+    "in": "^0.17.0",
+    "js-cookie": "^2.2.1",
+    "js.cookie": "^0.0.4",
+    "lodash": "^4.17.20",
+    "path-to-regexp": "^6.1.0",
+    "popper.js": "^1.16.0",
+    "qs": "^6.9.4",
+    "v-charts": "^1.19.0",
+    "vue": "^2.6.10",
+    "vue-clipboard2": "^0.3.1",
+    "vue-echarts": "^5.0.0-beta.0",
+    "vue-grid-layout": "^2.3.12",
+    "vue-i18n": "^8.17.5",
+    "vue-router": "^3.0.6",
+    "vue-savedata": "^2.0.4",
+    "vue2-ace-editor": "0.0.15",
+    "vue2-org-tree": "^1.2.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.0.0",
+    "@vue/cli-plugin-eslint": "^4.0.0",
+    "@vue/cli-service": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "file-saver": "^2.0.2",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "script-loader": "^0.7.2",
+    "vue-cli-plugin-element": "^1.0.1",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "xlsx": "^0.15.5"
+  },
+  "babel": {
+    "presets": [
+      "@vue/app"
+    ],
+    "sourceType": "unambiguous"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

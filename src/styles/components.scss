@@ -1,0 +1,116 @@
+//dialog
+.diy-dialog-title {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 28px;
+  color: rgba(51, 51, 51, 1);
+}
+
+.diy-dialog-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  .el-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .el-form-item {
+      height: auto;
+      margin-bottom: 15px;
+
+      .el-input,
+      .el-select,
+      .el-textarea,
+      .el-input-number,
+      .el-cascader,
+      .form-radio {
+        width: 300px;
+      }
+    }
+  }
+
+  .el-tree {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.diy-dialog-footer {
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+
+  .el-button {
+    margin-left: 20px;
+
+    &:first-child {
+      margin-right: 30px;
+    }
+  }
+}
+
+//DiyButton
+.diy-button {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(235, 238, 245, 1);
+    border-radius: 4px;
+  }
+}
+
+//login-box
+.login-box {
+  width: 330px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+    color: #303133;
+  }
+
+  &__title-2 {
+    margin-top: 16px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #606266;
+  }
+
+  &__back {
+    display: flex;
+    align-items: center;
+    color: #909399;
+
+    .back-icon {
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .back-text {
+      margin-left: 5px;
+      font-size: 16px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 70px;
+    border-radius: 0;
+  }
+}

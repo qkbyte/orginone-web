@@ -1,0 +1,13 @@
+// 全局变量
+@import "./variables.scss";
+
+//初始化样式
+@import "./init.scss";
+
+//全局组件样式
+@import "./components.scss";
+
+//全局布局样式
+@import "./layout.scss";
+
+@import "./common.scss"

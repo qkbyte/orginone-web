@@ -1,0 +1,221 @@
+//当HTML的data-theme为dark时，样式引用dark
+//data-theme为其他值时，就采用组件库的默认样式
+//这里我只定义了两套主题方案，想要再多只需在`$themes`里加就行了
+//注意一点是，每套配色方案里的key可以自定义但必须一致，不然就会混乱
+
+$themes: (
+  weilanBlue: (
+    //字体
+      font_color1: hsl(0, 0, 20),
+    font_color2: white,
+    font_color3: #4d87ea,
+    font_color4: black,
+    font_color5: white,
+    // 切换简化边框时图标的字体颜色
+      font_color6: #154ad8,
+    // 切换简化边框时单位默认字体颜色
+      font_color7: #154ad8,
+    // 切换简化边框时单位字体颜色
+      //背景
+      background_color1: hsl(215, 83, 50),
+    // 主色
+      background_color2: hsl(215, 83, 85),
+    // 菜单栏底色
+      background_color3: hsl(215, 83, 98),
+    // 树形底色
+      background_color4: #F1F1F8,
+    // 页面底色
+      background_color5: #aacbf8,
+    // 菜单经过底色
+      background_color6: hsl(215, 86, 59),
+    // 菜单点击底色
+      background_color7: #ffffff,
+    // 单位图标的背景色
+      background_color8: #ffffff,
+    // layout底色
+      background_color9: #ffffff,
+    // 简化边框选中单位的颜色
+      background_color10: #e9effb,
+    // 简化边框未选中单位的颜色
+      background_color11: #ecf1fc,
+    // 树形点击样式
+      background_color12: #f5f7fa,
+    // 树形经过样式
+      background_color13: #154ad8,
+    // 其他主题为其主题色 默认主题为蓝色  部门管理添加等按钮颜色
+      //边框
+      border_color1: #f0f1f5,
+    border_color2: #e9effb,
+    border_color3: #ffffff,
+    // svg颜色
+      fill_color1: #f8f9fe,
+    fill_color2: hsl(215, 83, 50),
+    // 菜单栏icon颜色
+      fill_color3: #4884fe,
+    fill_color4: #fbfdf6,
+    // 切换简化边框时图标默认颜色
+      fill_color5: #3b87f0,
+    // 未切换时左侧菜单图表默认颜色,,
+  ),
+  zangqingBlue: (
+    //字体
+      font_color1: #676c72,
+    font_color2: white,
+    font_color3: hsl(219, 47, 32),
+    font_color4: black,
+    font_color5: white,
+    // 切换简化边框时图标的字体颜色
+      font_color6: hsl(219, 47, 32),
+    // 切换简化边框时默认单位字体颜色
+      font_color7: hsl(219, 47, 32),
+    // 切换简化边框时单位字体颜色
+      //背景
+      background_color1: hsl(219, 47, 32),
+    // 主色
+      background_color2: hsl(219, 47, 92),
+    // 菜单栏底色
+      background_color3: hsl(219, 47, 98),
+    // 树形底色
+      background_color4: #F1F1F8,
+    // 页面底色
+      background_color5: hsl(219, 47, 85),
+    // 菜单经过底色
+      background_color6: hsl(219, 47, 32),
+    // 菜单点击底色
+      background_color7: #ffffff,
+    // 单位图标的背景色
+      background_color8: #ffffff,
+    // layout底色
+      background_color9: #ffffff,
+    // 简化边框选中单位的颜色
+      background_color10: #e9effb,
+    // 简化边框未选中单位的颜色
+      background_color11: hsl(219, 47, 92),
+    // 树形点击样式
+      background_color12: #f5f7fa,
+    // 树形经过样式
+      background_color13: hsl(219, 47, 32),
+    // 其他主题为其主题色 默认主题为蓝色  部门管理添加等按钮颜色
+      //边框
+      border_color1: #f0f1f5,
+    border_color2: #e9effb,
+    border_color3: #ffffff,
+    // svg颜色
+      fill_color1: #f8f9fe,
+    fill_color2: #2b4678,
+    // 菜单栏icon颜色
+      fill_color3: #2b4678,
+    // 菜单栏icon经过颜色
+      fill_color4: #fbfdf6,
+    // 切换简化边框时图标默认颜色
+      fill_color5: #3b87f0,
+    // 未切换时左侧菜单图表默认颜色,,
+  ),
+  songhuaGreen: (
+    //字体
+      font_color1: #676c72,
+    font_color2: white,
+    font_color3: hsl(133, 47, 32),
+    font_color4: black,
+    font_color5: white,
+    // 切换简化边框时图标的字体颜色
+      font_color6: hsl(133, 47, 32),
+    // 切换简化边框时单位默认字体颜色
+      font_color7: hsl(133, 47, 32),
+    // 切换简化边框时单位字体颜色
+      //背景
+      background_color1: hsl(133, 47, 32),
+    // 主色
+      background_color2: hsl(133, 47, 92),
+    // 菜单栏底色
+      background_color3: hsl(133, 47, 98),
+    // 树形底色
+      background_color4: #F1F1F8,
+    // 页面底色
+      background_color5: hsl(133, 47, 90),
+    // 菜单经过底色
+      background_color6: hsl(133, 47, 32),
+    // 菜单点击底色
+      background_color7: #ffffff,
+    // 单位图标的背景色
+      background_color8: #ffffff,
+    // layout底色
+      background_color9: #ffffff,
+    // 简化边框选中单位的颜色
+      background_color10: #e9effb,
+    // 简化边框未选中单位的颜色
+      background_color11: hsl(133, 47, 92),
+    // 树形点击样式
+      background_color12: hsl(133, 47, 90),
+    // 树形经过样式
+      background_color13: hsl(133, 47, 32),
+    // 其他主题为其主题色 默认主题为蓝色  部门管理添加等按钮颜色
+      //边框
+      border_color1: #e1e8f4,
+    border_color2: #e9effb,
+    border_color3: #ffffff,
+    // svg颜色
+      fill_color1: #f8f9fe,
+    fill_color2: hsl(133, 47, 32),
+    // 侧边栏图标颜色
+      fill_color3: hsl(133, 47, 32),
+    // 侧边栏鼠标经过图标颜色
+      fill_color4: #fbfdf6,
+    // 切换简化边框时图标默认颜色
+      fill_color5: #3b87f0,
+    // 未切换时左侧菜单图表默认颜色,,
+  ),
+  default: (
+    //字体
+      font_color1: #676c72,
+    font_color2: #676c72,
+    font_color3: white,
+    font_color4: black,
+    font_color5: black,
+    // 切换简化边框时图标的字体颜色
+      font_color6: white,
+    // 切换简化边框时单位默认字体颜色
+      font_color7: #154ad8,
+    // 切换简化边框时单位字体颜色
+      //背景
+      background_color1: #ffffff,
+    // 主色
+      background_color2: #ffffff,
+    // 菜单栏底色
+      background_color3: #ffffff,
+    // 树形底色
+      background_color4: #F1F1F8,
+    // 页面底色
+      background_color5: #f2f6fc,
+    // 菜单经过底色
+      background_color6: #f2f6fc,
+    // 菜单点击底色
+      background_color7: #154ad8,
+    // 单位图标的背景色
+      background_color8: #ffffff,
+    // layout底色
+      background_color9: #4d87ea,
+    // 简化边框选中单位的颜色
+      background_color10: #f2f6fc,
+    // 简化边框未选中单位的颜色
+      background_color11: #ecf1fc,
+    // 树形点击样式
+      background_color12: #f5f7fa,
+    // 树形经过样式
+      background_color13: #154ad8,
+    // 其他主题为其主题色 默认主题为蓝色  部门管理添加等按钮颜色
+      //边框
+      border_color1: rgba(0, 0, 0, 0),
+    border_color2: #ffffff,
+    border_color3: #ffffff,
+    // svg颜色
+      fill_color1: #154ad8,
+    fill_color2: #154ad8,
+    // 菜单栏icon颜色
+      fill_color3: #154ad8,
+    fill_color4: #a8aec6,
+    // 切换简化边框时图标默认颜色
+      fill_color5: #5077e2,
+    // 未切换时左侧菜单图表默认颜色,,
+  ),
+);

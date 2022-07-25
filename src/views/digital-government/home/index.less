@@ -1,0 +1,83 @@
+@10px: 0.69444444vw;
+@font-face{
+    font-family: DinAlternate;
+    src: url('./font/DINAlternateBold.ttf');
+}
+.ml8{
+    margin-left: 8px;
+}
+#governmentHome{
+    background: #fff;
+    width: 100%;
+    min-width:1280px;
+    font-family: PingFangSC-Regular, PingFang SC;
+
+    .content{
+        display: flex;
+        align-items: flex-start;
+        margin-top: 15px;
+        .middle{
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            width: calc(100% - 480px);
+            margin: 0 20px;
+            .middle-top {
+                width: 100%;
+                display: flex;
+                .mytask, .myoffice{
+                    width: 50%;
+                }
+            }
+            .middle-bottom{
+                width: 100%;
+                display: flex;
+                .fxqxt, .hexin{
+                    width: 50%;
+                }
+            }
+            .box{
+                flex:1;
+                // width: calc((100% - @10px * 2) / 2);
+                height: 448px;
+                background: #FFFFFF;
+                margin:0 @10px * 2 20px 0;
+                border-radius: 2px;
+                box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.06);
+
+                &.myoffice,&.hexin{
+                    margin-right: 0;
+                }
+                &.fxqxt,&.hexin{
+                    height: 490px;
+                }
+                .sub-title{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size:18px;
+                    font-family: PingFangSC-Semibold, PingFang SC;
+                    font-weight: 600;
+                    background: #DAEBFC;
+                    border-radius: 2px 2px 0px 0px;
+                    color: #1D96FF;
+                    padding: 20px;
+                    .more{
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #1D96FF;
+                        font-family: PingFangSC-Regular, PingFang SC;
+                        img{
+                            margin-left: 4px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+}
